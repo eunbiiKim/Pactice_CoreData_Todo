@@ -1,24 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GRH-dj-t4A">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--목록-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ToDoListViewController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vnc-pS-Sti">
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="ZRt-Nh-lS4">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZRt-Nh-lS4" id="Uru-eo-dPC">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Vnc-pS-Sti" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="asi-1h-aqE"/>
+                            <constraint firstItem="Vnc-pS-Sti" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fZM-FI-Wcx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Vnc-pS-Sti" secondAttribute="bottom" id="ffD-GH-RD5"/>
+                            <constraint firstItem="Vnc-pS-Sti" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qm3-CZ-Bqz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="목록" id="7Ue-yh-emN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="c09-A4-f9Y">
+                            <connections>
+                                <segue destination="GgO-83-ZmV" kind="show" identifier="showAddTodo" id="YNc-9F-E7K"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="todoListTableView" destination="Vnc-pS-Sti" id="e1K-be-Mu5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="137.94642857142856"/>
+        </scene>
+        <!--세부사항-->
+        <scene sceneID="AjX-Nw-sLo">
+            <objects>
+                <viewController id="GgO-83-ZmV" customClass="ToDoCreateViewController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D4B-ab-FAv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RMw-F3-LId">
+                                <rect key="frame" x="10" y="150" width="394" height="612"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="GgO-83-ZmV" id="ksn-fl-1Ne"/>
+                                </connections>
+                            </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="to9-TQ-ruM">
+                                <rect key="frame" x="147" y="817" width="121" height="29"/>
+                                <segments>
+                                    <segment title="!"/>
+                                    <segment title="!!"/>
+                                    <segment title="!!!"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RMw-F3-LId" firstAttribute="top" secondItem="t5Q-dt-WWq" secondAttribute="top" constant="10" id="2Co-6G-2lG"/>
+                            <constraint firstItem="RMw-F3-LId" firstAttribute="leading" secondItem="t5Q-dt-WWq" secondAttribute="leading" constant="10" id="3tw-0A-QQL"/>
+                            <constraint firstItem="to9-TQ-ruM" firstAttribute="top" secondItem="RMw-F3-LId" secondAttribute="bottom" constant="55" id="54y-gB-wvh"/>
+                            <constraint firstItem="t5Q-dt-WWq" firstAttribute="bottom" secondItem="to9-TQ-ruM" secondAttribute="bottom" constant="17" id="IPB-NV-wbc"/>
+                            <constraint firstItem="to9-TQ-ruM" firstAttribute="leading" secondItem="t5Q-dt-WWq" secondAttribute="leading" constant="147" id="Z5j-Mh-B9J"/>
+                            <constraint firstItem="t5Q-dt-WWq" firstAttribute="trailing" secondItem="RMw-F3-LId" secondAttribute="trailing" constant="10" id="ga1-vg-VU0"/>
+                            <constraint firstItem="t5Q-dt-WWq" firstAttribute="bottom" secondItem="RMw-F3-LId" secondAttribute="bottom" constant="100" id="syt-bu-gUT"/>
+                            <constraint firstItem="t5Q-dt-WWq" firstAttribute="trailing" secondItem="to9-TQ-ruM" secondAttribute="trailing" constant="146" id="v6a-S6-lGx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="t5Q-dt-WWq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="세부사항" id="w5e-mM-ZtR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Ogq-5c-EMI">
+                            <connections>
+                                <action selector="save:" destination="GgO-83-ZmV" id="4iC-dQ-b9C"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="Ogq-5c-EMI" id="24t-SN-hgX"/>
+                        <outlet property="segmentedControl" destination="to9-TQ-ruM" id="rc5-c3-HuD"/>
+                        <outlet property="textView" destination="RMw-F3-LId" id="GaN-Mq-qso"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6hf-pH-fdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1790" y="137"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vHM-kh-2A8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GRH-dj-t4A" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="nqz-Sj-czo">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wnV-6b-jAu">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="k8P-lN-7LU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vcD-5e-gcG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>
